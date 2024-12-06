@@ -1,0 +1,42 @@
+<!Doctype html>
+<html>
+<head>
+	
+</head>
+<body>
+	<h1> 112306078_Lab3_Number Guessing Game</h1>
+	<div id="resultDiv"></div>
+	<script>
+		var count = 7;
+		var min = 1,max = 100;
+		var ansNum = Math.floor(Math.random()*99)+2;
+		while(count>0){
+			var num = window.prompt("猜數字﹐範圍"+min+"~"+max+"\n還剩"+count+"次");
+			if(isNaN(num)){
+				alert('輸入錯誤');
+				count+=1;
+			}else if(num<=min||num>=max){
+				alert('輸入錯誤');
+				count+=1;
+			}
+			
+			count -= 1;
+			if(num == ansNum){
+				resultDiv.innerHTML = '<img src="correct.jpg" alt="Correct">';
+				alert('Correct');
+				break;
+			}else if(num > ansNum && num<max){
+				max = num;
+			}else if(num < ansNum && num>min){
+				min = num;
+			}
+			if(count == 0){
+				resultDiv.innerHTML = '<img src="wrong.jpg" alt="Wrong">';
+				alert('Wrong');
+			}
+		}
+
+
+	</script>
+</body>
+</html>
